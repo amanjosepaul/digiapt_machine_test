@@ -96,3 +96,9 @@ body {
     overflow-y: hiddin;
   }
 }
+
+.add-post {
+  display: flex;
+  justify-content: end;
+  margin: 10px;
+}

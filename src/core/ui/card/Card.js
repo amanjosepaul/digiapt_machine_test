@@ -7,7 +7,6 @@ const Card = (props) => {
   const { name, title, description, category, date } = props;
   const desWordOverflow =
     description.split(" ").length > 50 ? "decscription-overflow" : "";
-  console.log("desWordOverflow: ", desWordOverflow);
 
   let icon =
     category === "auto"
@@ -27,7 +26,10 @@ const Card = (props) => {
         </div>
       </div>
       <div className={`${desWordOverflow} solu_description`}>
-        <h2>{title}</h2>
+        <div className="title-catogry">
+          <h2>{title}</h2>
+          <h4>{category.toUpperCase()}</h4>
+        </div>
         <p>{description}</p>
       </div>
     </div>

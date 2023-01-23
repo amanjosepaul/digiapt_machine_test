@@ -10,7 +10,7 @@
   overflow: hidden;
   min-height: 265px;
   transition: 0.7s;
-  width: 450px;
+  width: 550px;
   height: 200px;
 }
 
@@ -133,6 +133,11 @@
   object-fit: contain;
 }
 .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-catogry {
   display: flex;
   justify-content: space-between;
 }

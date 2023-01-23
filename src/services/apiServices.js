@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import auth from "../firebase";
 
@@ -28,7 +29,8 @@ export const userRegistration = async (formData) => {
     });
 };
 
-
 export const signOutUser = () => {
-  
-}
+  signOut(auth)
+    .then(() => {})
+    .catch((error) => alert(error.message));
+};

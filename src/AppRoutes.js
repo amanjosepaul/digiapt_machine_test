@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./component/Pages/Home/Home";
 import AddPost from "./component/Pages/AddPost/AddPost";
@@ -7,8 +7,12 @@ import ProtectedRoutes from "./utils/ProtectedRoutes";
 import NavBar from "./component/NavBar/NavBar";
 import MyPosts from "./component/Pages/MyPosts/MyPosts";
 import AuthProvider from "./auth/AuthProvider";
+import { signOutUser } from "./services/apiServices";
 
 const AppRoutes = () => {
+  useEffect(() => {
+    signOutUser();
+  }, []);
   return (
     <>
       <AuthProvider>
