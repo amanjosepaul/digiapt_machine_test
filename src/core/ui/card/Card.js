@@ -4,7 +4,7 @@ import FinanceIcon from "../../../assets/pngIcons/financeIcon.png";
 import TechnologyIcon from "../../../assets/pngIcons/technologyIcon.png";
 import AutoIcon from "../../../assets/pngIcons/autoIcon.png";
 const Card = (props) => {
-  const { name, title, description, category, date } = props;
+  const { author, title, description, category, postDate } = props;
   const desWordOverflow =
     description.split(" ").length > 50 ? "decscription-overflow" : "";
 
@@ -22,12 +22,12 @@ const Card = (props) => {
           <img src={icon} alt="fireSpot" />
         </div>
         <div className="solu_title">
-          <h1>{name}</h1>
+          <h1>{author.toUpperCase()}</h1>
         </div>
       </div>
       <div className={`${desWordOverflow} solu_description`}>
         <div className="title-catogry">
-          <h2>{title}</h2>
+          <h2>{title.toUpperCase()}</h2>
           <h4>{category.toUpperCase()}</h4>
         </div>
         <p>{description}</p>

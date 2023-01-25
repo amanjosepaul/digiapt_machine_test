@@ -35,6 +35,7 @@ body {
   display: inline;
   float: right;
   font-size: 25px;
+  border-radius: 5px;
 }
 
 .nav > .nav-links > a {
@@ -45,7 +46,9 @@ body {
 }
 
 .nav > .nav-links > a:hover {
-  background-color: rgb(73, 73, 73);
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
 }
 
 @media (max-width: 600px) {
@@ -74,11 +77,8 @@ body {
   }
   .nav > .nav-links {
     position: absolute;
-    /*     display: block; */
     width: 100%;
-    background-color: #333;
     max-height: 0px;
-    transition: all 0.5s ease-in;
     overflow-y: hidden;
     top: 50px;
     left: 0px;
@@ -101,4 +101,18 @@ body {
   display: flex;
   justify-content: end;
   margin: 10px;
+  font-size: 18px;
+}
+
+.add-post button {
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: #1f2029;
+  border-radius: 10px;
+}
+
+.add-post button:hover {
+  color: black;
+  background-color: #ffffff;
 }

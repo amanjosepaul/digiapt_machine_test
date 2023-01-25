@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   userAuthentication,
   userRegistration,
@@ -14,6 +15,7 @@ const LoginAndSignUp = () => {
     password: "",
   });
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const formDataHandler = (key, value) => {
     setFormData((preState) => {
       return {
@@ -27,7 +29,9 @@ const LoginAndSignUp = () => {
     event.preventDefault();
     if (formData.email === "" || formData.password === "")
       return alert("Please fill the empty fields");
-    userAuthentication(formData);
+    userAuthentication(formData)
+      .then(() => navigate("/home"))
+      .catch((errors) => alert(errors.message));
   };
 
   const signUpHandler = (event) => {
@@ -38,7 +42,9 @@ const LoginAndSignUp = () => {
       formData.password === ""
     )
       return alert("Please fill the empty fields");
-    userRegistration(formData);
+    userRegistration(formData)
+      .then((res) => navigate("/home"))
+      .catch((errors) => alert(errors.message));
   };
 
   const renderInput = (item) => {

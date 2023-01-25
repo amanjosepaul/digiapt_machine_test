@@ -1,4 +1,25 @@
-.grid-container {
+.post-grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
+  /* height: 78vh; */
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.main-container > div > h1 {
+  font-size: 40px;
+  color: white;
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+  font-size: 40px;
+  color: white;
 }

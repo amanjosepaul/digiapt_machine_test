@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import "./nav-bar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider";
 
 const NavBar = () => {
   const context = useContext(AuthContext);
+  const navigate = useNavigate();
   return (
     <>
       <div className="nav">
@@ -18,11 +19,10 @@ const NavBar = () => {
           {!context.currentUser && (
             <NavLink to={"/login-signup"}>Login / SignUp</NavLink>
           )}
-          {/* <NavLink to={"/sign-up"}>Sign Up</NavLink> */}
         </div>
       </div>
       <div className="add-post">
-        <button>Add Post</button>
+        <button onClick={() => navigate("/add-post")}>Add Post</button>
       </div>
     </>
   );

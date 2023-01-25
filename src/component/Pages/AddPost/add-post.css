@@ -1,0 +1,81 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header h1 {
+  font-size: 30px;
+}
+
+/* .forms_field-input {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 6px 20px 6px 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.1px;
+  transition: border-color 0.2s ease-in-out;
+} */
+
+.input-fields {
+  margin: 10px;
+}
+
+.input-fields > input {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  width: 70%;
+  margin-left: 10px;
+}
+
+.input-fields > select {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  width: 70%;
+  margin-left: 10px;
+}
+
+.form label {
+  font-size: 20px;
+}
+
+.add-post-container .grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.form {
+  width: 50%;
+  color: white;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: #212334;
+}
+
+.add-post-container .form-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.submit-button {
+  /* color: white; */
+  font-size: 18px;
+  padding: 5px 25px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.text-area {
+  margin-bottom: 10px;
+}
+
+.add-post-container > .header {
+  font-size: 40px;
+  color: white;
+}

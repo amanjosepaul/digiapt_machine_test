@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../core/ui/card/Card";
+import Pagination from "../../core/ui/pagination/Pagination";
 import PostFilter from "../../core/ui/postFilter/PostFilter";
-import { getUserData } from "../../services/dummyData";
 import "./post.css";
-const Posts = () => {
-  const [allPost, setAllPost] = useState();
-  const [filteredPost, setFilteredPost] = useState(allPost);
 
+const Posts = (props) => {
+  const { header, allPost } = props;
+  const [filteredPost, setFilteredPost] = useState();
+  const postPerPage = 5;
   const postFilterHandler = (key, value) => {
-    console.log("value: ", value);
     if (key === "category") {
       let tempData = allPost.filter((post) => {
         return value === post.category;
       });
+      setFilteredPost([...tempData]);
+    }
+
+    if (key === "date") {
+      let tempData = allPost.filter((post) => value === post.postDate);
       setFilteredPost([...tempData]);
     }
 
@@ -32,42 +37,78 @@ const Posts = () => {
       if (value === "") setFilteredPost(allPost);
     }
 
-    if (key === "clearFilter") setFilteredPost(allPost);
+    if (key === "clearFilter") {
+      setFilteredPost(allPost);
+    }
+  };
+
+  const paginationHandler = (pageIndex) => {
+    let tempData = [...allPost];
+    let startIndex = 1,
+      endIndex = 5;
+    if (pageIndex > 1) {
+      endIndex = pageIndex * postPerPage;
+      startIndex = endIndex - postPerPage;
+    }
+    let slicedData = tempData.slice(startIndex - 1, endIndex - 1);
+    setFilteredPost(slicedData);
   };
 
   useEffect(() => {
-    setAllPost(getUserData());
-    setFilteredPost(getUserData());
-  }, []);
+    // setFilteredPost(allPost);
+    setFilteredPost(allPost?.slice(0, 5));
+  }, [allPost]);
 
   return (
-    <>
-      <div>
-        <PostFilter
-          categories={[
-            { keyValue: "technology", displayValue: "Technology" },
-            { keyValue: "auto", displayValue: "Auto" },
-            { keyValue: "finance", displayValue: "Finance" },
-          ]}
-          postFilterHandler={postFilterHandler}
+    <div className="post-container">
+      <div className="main-container">
+        <div>
+          <h1>{header}</h1>
+        </div>
+        {allPost && (
+          <div>
+            <PostFilter
+              categories={[
+                { keyValue: "technology", displayValue: "Technology" },
+                { keyValue: "auto", displayValue: "Auto" },
+                { keyValue: "finance", displayValue: "Finance" },
+              ]}
+              postFilterHandler={postFilterHandler}
+            />
+          </div>
+        )}
+      </div>
+
+      {allPost ? (
+        <div className="post-grid-container">
+          {filteredPost?.map((post, index) => {
+            return (
+              <div key={post.id + index}>
+                <Card
+                  author={post.author}
+                  title={post.title}
+                  category={post.category}
+                  description={post.description}
+                  postDate={post.date}
+                />
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div>
+          <label className="no-data">No Data to Show</label>
+        </div>
+      )}
+
+      {allPost?.length && (
+        <Pagination
+          pageCount={allPost?.length}
+          itemCount={postPerPage}
+          paginationHandler={paginationHandler}
         />
-      </div>
-      <div className="grid-container">
-        {filteredPost?.map((post) => {
-          return (
-            <div key={post.id}>
-              <Card
-                name={post.name}
-                title={post.title}
-                category={post.category}
-                description={post.description}
-                date={"12th Feb"}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 

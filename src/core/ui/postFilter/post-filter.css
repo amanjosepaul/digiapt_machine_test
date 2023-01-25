@@ -1,8 +1,71 @@
 .filter-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 900px;
+  margin-left: 10px;
+  background-color: #1f2029;
+  border-radius: 10px;
+  color: white;
+  padding: 7px 25px;
 }
 
 .filter-options {
   margin: 10px;
+  font-size: 18px;
+  margin-right: 100px;
+}
+
+.filter-options select {
+  margin-left: 10px;
+  padding: 3px;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 15px;
+}
+
+.filter-options button {
+  margin-left: 10px;
+  padding: 3px;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  width: 110px;
+  border: 1px solid white;
+}
+
+.filter-options input {
+  margin-left: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 15px;
+}
+
+.filter-options button:hover {
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.date-filter {
+  display: flex;
+}
+
+.date-filter > div > input {
+  margin-right: 10px;
+}
+
+.clear-filter > button {
+  margin-right: 10px;
+  padding: 3px;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  width: 110px;
+  border: 1px solid white;
+}
+
+.clear-filter button:hover {
+  color: black;
+  background-color: rgb(255, 255, 255);
 }

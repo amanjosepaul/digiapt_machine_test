@@ -24,7 +24,7 @@ const AppRoutes = () => {
 
             <Route element={<ProtectedRoutes />}>
               <Route path="/my-posts" element={<MyPosts />} />
-              <Route path="/add-posts" element={<AddPost />} />
+              <Route path="/add-post" element={<AddPost />} />
             </Route>
             <Route path="/login-signup" element={<LoginAndSignUp />} />
           </Routes>
